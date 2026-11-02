@@ -1,0 +1,79 @@
+{
+  "$schema": "https://fundingjson.org/schema/v1.1.0/funding.schema.json",
+  "version": "1.0.0",
+  "entity": {
+    "type": "organisation",
+    "role": "owner",
+    "name": "EoS Foundation",
+    "email": "grants@embeddedos.org",
+    "phone": "+917567114807",
+    "description": "EoS Foundation is a 501(c)(3) public charity building free, open-source embedded systems infrastructure. Our flagship project, EoS, is a production-grade real-time operating system written in pure C11 under the MIT license. The kernel fits in 15.8 KB of flash and 26.0 KB of RAM on a Cortex-M4, yet supports 171 microcontroller families through our eBuild build system. We maintain 23 repositories totaling roughly 500,000 lines of code, including eBoot (a secure two-stage bootloader with AES and SHA-256/512), EoSim (a simulator covering 153 platforms), eCAD (hardware designs for 125 product lines), and 14 free technical books. Our team of 20-50 volunteer contributors operates with zero full-time employees and under $15,000 in annual revenue. We have a Linux Foundation partnership. EIN: 41-4821627.",
+    "webpageUrl": {
+      "url": "https://embeddedos.org"
+    }
+  },
+  "projects": [
+    {
+      "guid": "eos-rtos",
+      "name": "EoS - Embedded Operating System",
+      "description": "A production-grade, formally verifiable real-time operating system in pure C11. EoS provides a minimal, secure kernel (15.8 KB flash, 26.0 KB RAM on Cortex-M4) with preemptive multitasking, inter-process communication, and memory protection. The project includes eBuild (a build system supporting 171 MCU families and 84 board descriptors), eBoot (a secure two-stage bootloader implementing AES-128/256, SHA-256/512, with RSA and ECC signature verification in development), EoSim (a cross-platform simulator for 153 target platforms), and eCAD (open hardware designs for 125 product lines including 15 development boards and 4 health monitoring devices at design stage). All software is MIT-licensed.",
+      "webpageUrl": {
+        "url": "https://embeddedos.org"
+      },
+      "repositoryUrl": {
+        "url": "https://github.com/embeddedos-org"
+      },
+      "licenses": [
+        "spdx:MIT"
+      ],
+      "tags": [
+        "rtos",
+        "embedded-systems",
+        "operating-system",
+        "iot",
+        "microcontroller",
+        "security",
+        "bootloader",
+        "open-hardware",
+        "c11",
+        "nonprofit"
+      ]
+    }
+  ],
+  "funding": {
+    "channels": [
+      {
+        "guid": "bank-us",
+        "type": "bank",
+        "description": "US bank transfer to EoS Foundation, a 501(c)(3) public charity. EIN: 41-4821627. Contact grants@embeddedos.org for wiring details."
+      },
+      {
+        "guid": "cheque-us",
+        "type": "cheque",
+        "address": "EoS Foundation, 2601 Cortez Dr, Unit 1104, Santa Clara, CA 95051",
+        "description": "Mail checks payable to EoS Foundation."
+      }
+    ],
+    "plans": [
+      {
+        "guid": "annual-sustainer",
+        "status": "active",
+        "name": "Annual Sustainability Grant",
+        "description": "Fund one full-time kernel engineer and security auditor for 12 months to complete RSA/ECC signature verification in eBoot, begin formal verification of the kernel memory safety properties, and maintain the 23-repository codebase.",
+        "amount": 100000,
+        "currency": "USD",
+        "frequency": "yearly",
+        "channels": ["bank-us", "cheque-us"]
+      }
+    ],
+    "history": [
+      {
+        "year": 2025,
+        "income": 15000,
+        "expenses": 12000,
+        "currency": "USD",
+        "description": "All-volunteer operation. Income from small donations and community support."
+      }
+    ]
+  }
+}
