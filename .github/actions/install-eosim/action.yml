@@ -48,7 +48,8 @@ runs:
         TAG="${{ steps.resolve.outputs.tag }}"
         VER="${TAG#v}"
         URL="https://github.com/embeddedos-org/EoSim/releases/download/${TAG}/eosim-${VER}-py3-none-any.whl"
-        CODE=$(curl -s -o /dev/null -w "%{http_code}" -I "$URL")
+        # Release downloads answer 302 to the asset host; follow it (-L).
+        CODE=$(curl -s -L -o /dev/null -w "%{http_code}" -I "$URL")
         if [ "$CODE" != "200" ]; then
           echo "::error::install-eosim: no wheel at $URL (HTTP $CODE). EoSim publishes no wheels; use install-mode 'from-source'."
           exit 1

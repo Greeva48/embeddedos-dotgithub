@@ -59,8 +59,9 @@ is tracked per-repo (e.g. eBoot#147).
 
 ## Tests
 
-`tests/community/test_install_eosim.py` covers the resolver (7 tests, no
-network). Run: `python3 -m pytest tests/community/test_install_eosim.py`.
+`tests/community/test_install_eosim.py` covers the resolver (7 tests) and
+the wheel step's HTTP check (2 tests, with stub `curl` and `pip`); no
+network. Run: `python3 -m pytest tests/community/test_install_eosim.py`.
 
 ## Runners
 
