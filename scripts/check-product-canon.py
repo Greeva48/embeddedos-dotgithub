@@ -77,13 +77,18 @@ EXPECTED_AT_LEAST_ONCE: list[tuple[str, str]] = [
 
 
 def is_excluded(path: Path) -> bool:
-    parts = set(path.parts)
+    # Judge only the part of the path inside the repo. The folders above the
+    # checkout are not the repo's own: a clone under ~/build/ or ~/dist/
+    # would otherwise exclude every file and pass with nothing scanned.
+    # Not resolved: every path comes from REPO_ROOT.rglob(), and resolving a
+    # symlink that points outside the repo would make relative_to() raise.
+    rel = path.relative_to(REPO_ROOT)
+    parts = set(rel.parts)
     if parts & EXCLUDE_DIR_NAMES:
         return True
-    s = str(path)
+    s = str(rel)
     if any(frag in s for frag in EXCLUDE_PATH_FRAGMENTS):
         return True
-    rel = path.resolve().relative_to(REPO_ROOT)
     if rel == SELF_REL:
         return True
     return False
